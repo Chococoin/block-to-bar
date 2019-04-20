@@ -224,8 +224,8 @@
   .green .progress .inner .percent,
   .red .progress .inner .percent,
   .orange .progress .inner .percent {
-    line-height: 240px;
-    font-size: 92.3076923076923px;
+    line-height: 2.4rem;
+    font-size: 5.6rem;
   }
   .green .progress .inner .percent {
     color: #03c603;

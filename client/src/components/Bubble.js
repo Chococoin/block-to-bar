@@ -4,8 +4,11 @@ class Bubble extends Component {
   constructor(){
     super()
     this.state = {
-      percentage : 10,
-      data: ''
+      percentage : 1,
+      data: 'Aspettando data da Exchange',
+      color: 'red',
+      tree_level: 0,
+      tree_number: 0
     }
 
     this.onChange = this.onChange.bind(this);
@@ -14,7 +17,24 @@ class Bubble extends Component {
   componentDidMount() {
     fetch('http://localhost:5000')
       .then(response => response.json())
-      .then(data => this.setState({ data }));
+      .then(data => this.setState({ data : 2676/2 }))
+      .then(() => {
+        const goal = 25000;
+        const stock_tree = 9000;
+        let percentage = Math.floor(this.state.data / 25000 * 1000) / 10;
+        let tree_level = (Math.floor(this.state.data / 18) / stock_tree * 100).toFixed(1);
+        let tree_number = Math.floor(this.state.data / 18);
+        this.setState({ percentage, tree_level, tree_number })
+
+        if (this.state.data >= goal) {
+          this.setState({color: 'green'})
+        }
+        else if (this.state.data >= goal / 4) {
+          this.setState({color: 'orange'})
+        } else {
+          this.setState({color: 'red'})
+        }
+      })      
   }
 
   onChange(e) {
@@ -27,33 +47,23 @@ class Bubble extends Component {
   render() {
     return (
       <div>
-        <h2>Bubble</h2>
-        <div class="wrapper">
-          <span class="instructions">
-            The progress bubble below can transition between red, orange, and green depending on the current percentage.
-          </span>
-          <span class="instructions">
-            Go ahead and try it out by using the text box below.
+        <div className="wrapper">
+          <span className="instructions">
+            {"Numero d'alberi adottati " +  Math.floor(this.state.tree_number)} 
           </span>
     
-          <div class="green">
-            <div class="progress">
-            <div class="inner">
-            <div class="percent"><span>{this.state.percentage}</span>%</div>
-            <div class="water"></div>
-            <div class="glare"></div>
+          <div className={this.state.color}>
+            <div className="progress">
+              <div className="inner">
+                <div className="percent"><span>{this.state.tree_level}</span>%</div>
+                <div className="water" style={{"top": 100 - this.state.tree_level +"%"}}></div>
+                <div className="glare"></div>
+              </div>
+            </div>
           </div>
+            <span>{this.state.data}</span>
         </div>
       </div>
-  
-  <span>Enter Percentage: <input type="text" 
-                                 name="percentage" 
-                                 value={this.state.percentage} 
-                                 id="percent-box" 
-                                 onChange={this.onChange}/>%</span>
-                                 <span>{this.state.data}</span>
-</div>
-        </div>
 
     )
   }
