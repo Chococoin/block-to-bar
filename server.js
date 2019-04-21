@@ -20,6 +20,14 @@ const cors = require('cors');
 const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(bodyParser.json());
+
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static('build'));
+    app.get('*', (req, res) => {
+      res.sendFile(path.join('build', 'index.html'));
+    });
+}
+
 app.listen(PORT, function() {
     console.log("Server is running on Port: " + PORT);
 });
