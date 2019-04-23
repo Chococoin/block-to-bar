@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import Bubble from '../Bubble';
 
 class Body extends Component {
@@ -11,7 +11,7 @@ class Body extends Component {
               <div className="col-md-12 text-center">
                 <h1 className="display-3 mb-4">Block-to-Bar Monitor</h1>
                 <p className="lead">
-                  <h1>Numero d'alberi adottati</h1> 
+                  Numero d'alberi adottati
                 </p>
                 <hr />
                 <Bubble />

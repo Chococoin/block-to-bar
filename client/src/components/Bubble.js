@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Axios from 'axios';
 
 class Bubble extends Component {
   constructor(){
@@ -15,9 +16,9 @@ class Bubble extends Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:5000')
-      .then(response => response.json())
-      .then(data => this.setState({ data : 2676/2 }))
+    Axios.get('http://localhost:5000')
+      .then(response => response.data )
+      .then(data => this.setState({ data }))
       .then(() => {
         const goal = 25000;
         const stock_tree = 9000;
