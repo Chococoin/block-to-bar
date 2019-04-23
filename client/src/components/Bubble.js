@@ -16,7 +16,7 @@ class Bubble extends Component {
   }
 
   componentDidMount() {
-    Axios.get('http://localhost:5000')
+    Axios.get('/data')
       .then(response => response.data )
       .then(data => this.setState({ data }))
       .then(() => {
