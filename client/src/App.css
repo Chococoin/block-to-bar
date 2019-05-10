@@ -271,10 +271,13 @@ input::selection {
   border-bottom: 1px solid #b3b3b3;
   padding-bottom: 4px;
 }
+#ammontare {
+  font-size: 1.2em;
+}
 .instructions {
   display: inline-block;
   margin: 5px 0;
-  font-size: 16px;
+  font-size: 1.6em;
 }
 @-webkit-keyframes spin {
   from {

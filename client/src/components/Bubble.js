@@ -62,7 +62,7 @@ class Bubble extends Component {
               </div>
             </div>
           </div>
-            <span>{this.state.data}</span>
+            <span id="ammontare">Ammontare: € {this.state.data}</span>
         </div>
       </div>
 
