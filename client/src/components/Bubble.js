@@ -30,7 +30,7 @@ class Bubble extends Component {
         if (this.state.data >= goal) {
           this.setState({color: 'green'})
         }
-        else if (this.state.data >= goal / 4) {
+        else if (this.state.data >= goal / 3) {
           this.setState({color: 'orange'})
         } else {
           this.setState({color: 'red'})

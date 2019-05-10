@@ -5,8 +5,8 @@ const app = express();
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
-const keyKraken = 'vdMmjTaAIPjSZ4+4wDnfJ4Ifs8WMcUPBbQS/b3fhi+NJPR/5a6Yr2k7R';
-const secret = '/z0Lzbu0Y9xWTgzY93Mgf++gzOH9eMNm16/eQ7kmcICHfWYkepCrCq6eI8KM7QpJumJ/DNlliQz71grbcbqXRA==';
+const keyKraken = '3kc10LiQKqrKKozEXwV9cvxphG+23HdiTqBYqFXCOJrXMrLVoprgLVfD';
+const secret = 'tvZfsYoC4lDaPfAHJ61SFFV0Ej6wP8LwXwnCTqDrUiBHrkoTUIzNMyczNlwSTsdjTXWkKIELBR5Gwm4c9+0UsA==';
 
 const kraken = new KrakenClient(keyKraken, secret);
 
@@ -16,7 +16,7 @@ async function krakenApiCall(){
     await kraken.api('Balance')
     .then(res => {
       data = res.result.ZEUR;
-    }).catch(err => console.log("Algo fallo en la respuesta de  kraken", err));
+    }).catch(err => console.log( err));
 }
 
 
