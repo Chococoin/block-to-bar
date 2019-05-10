@@ -277,7 +277,7 @@ input::selection {
 .instructions {
   display: inline-block;
   margin: 5px 0;
-  font-size: 1.6em;
+  font-size: 2em;
 }
 @-webkit-keyframes spin {
   from {
